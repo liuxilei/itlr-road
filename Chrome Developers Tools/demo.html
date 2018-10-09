@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chrome Developers Tools_study</title>
+    <style>
+        html * {
+            padding: 0px;
+            margin: 0px;
+        }
+        .one {
+            width: 80%;
+            height: 40px;
+            background: red;
+            margin: 0 auto;
+        }
+        .two {
+            width: 60%;
+            height: 60px;
+            background: blue;
+        }
+        .three {
+            width: 60%;
+            height: 100px;
+            background: yellow;
+            margin-left: 40%;
+        }
+        .four {
+            width: 100%;
+            height: 200px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">one</div>
+    <div class="two">two</div>
+    <div class="three">three</div>
+    <div class="four">four</div>
+    <script>
+        const one = document.querySelector('.one');
+        const two = document.querySelector('.two');
+        const three = document.querySelector('.three');
+        const four = document.querySelector('.four');
+        one.addEventListener('click',function() {
+            console.log('one被点击了')
+        },true);
+        window.addEventListener('click',function() {
+            console.log('window被点击了');
+        });
+        document.body.addEventListener('click',function(e) {
+            if (e.target.classList[0] == 'four') {
+                console.log(111);
+            } else if (e.target.classList[0] == 'three') {
+                console.log(222);
+            }
+        });
+    </script>
+</body>
+</html>

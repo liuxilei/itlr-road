@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>console_study</title>
+</head>
+<body>
+    <script>
+        console.log('%c语义化信息输出','font-size:14px;color:blue');
+        console.log('明日复明日.');
+        console.info('明日何其多.');
+        console.warn('我生待明日.');
+        console.error('万事成蹉跎.');
+        console.log('%c分组信息','font-size:14px;color:blue');
+        console.group('A组同学请说话');
+        console.log('我要好好学习！');
+        console.groupEnd();
+        console.group('B组同学请说话');
+        console.log('不可能！');
+        console.groupEnd();
+        let a = '变量输出';
+        console.log('%c' + a,'font-size:16px;color:red');
+    </script>
+</body>
+</html>
