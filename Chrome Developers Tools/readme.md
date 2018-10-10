@@ -25,3 +25,25 @@ console.groupEnd();
 ```
 console分组:
 ![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome%20Developers%20Tools/img/group.png)
+```
+let data = [{'品名': '豆浆', '数量': 4}, {'品名':'油条', '数量': 3}];
+console.table(data);
+```
+console表格
+![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome%20Developers%20Tools/img/table.png)
+```
+console.log(document.body);
+console.dir(document.body);
+```
+console.dir
+![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome%20Developers%20Tools/img/dir.png)
+```
+console.time('time');
+const test = [1,2,3,4,5,6,7,8,9];
+for (let i = 0;i < test.length;i++) {
+    console.log(test[i]);
+}
+console.timeEnd('time');
+```
+console.time()和console.timeEnd()注意括号内要相同
+![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome%20Developers%20Tools/img/time.png)
