@@ -79,7 +79,7 @@ console占位符
 ```javascript
 console.log('%cThis text is styled!','color:red;background:yellow;font-size:24px');
 ```
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/%c.png)
+![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/%25c.png)
 
 ```javascript
 //定义console.log方法
