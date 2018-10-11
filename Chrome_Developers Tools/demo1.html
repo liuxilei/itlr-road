@@ -15,6 +15,7 @@
         console.warn('我生待明日.');
         console.error('万事成蹉跎.');
         console.log('%c分组信息','font-size:14px;color:blue');
+
         //console分组
         console.group('A组同学请说话');
         console.log('我要好好学习！');
@@ -24,12 +25,15 @@
         console.groupEnd();
         let a = '变量输出';
         console.log('%c' + a,'font-size:16px;color:red');
+
         //console表格
         let data = [{'品名': '豆浆', '数量': 4}, {'品名':'油条', '数量': 3}];
         console.table(data);
+
         //console.dir
         console.log(document.body);
         console.dir(document.body);
+
         //console.time、console.timeEnd性能测试 注意：console.time和console.timeEnd括号内要相同！
         console.time('time');
         const test = [1,2,3,4,5,6,7,8,9];
@@ -37,9 +41,90 @@
             console.log(test[i]);
         }
         console.timeEnd('time');
+
         //console.profile&console.timeLime
-        console.profile();
-        console.profileEnd();
+        // console.profile();
+        // console.profileEnd();
+
+        //console中的占位符
+        // %s 字符串
+        // %d 整数
+        // %i 整数
+        // %f 浮点数
+        // %o 对象的链接
+        // %c CSS格式字符串
+        var number = 11 * 9;
+        var color = 'red';
+        console.log('%d %s balloons',number,color);
+        console.log('%cThis text is styled!','color:red;background:yellow;font-size:24px');
+        //console输出对象
+        console.log({foo:'bar'});
+        console.log(Date);
+        console.dir(Date);
+        
+        //定义console.log方法
+        // ['log','info','warn','error'].forEach(function(method) {
+        //     console[method] = console[method].bind(
+        //         console,
+        //         new Date().toString()
+        //     );
+        // });
+        // console.log('瞧，我在前面添加了现在的事件');
+        // console.info('这是一个信息！');
+        // console.warn('这是一个警告！');
+        // console.error('这是一个错误!');
+
+        //console.table主键
+        var languages = [
+            { name: 'JavaScript', fileExtension: '.js'},
+            { name: 'TypeScript', fileExtension: '.ts'},
+            { name: 'CoffeeScript', fileExtension: '.coffee'},
+        ];
+        console.table(languages);//主键索引
+        var languages = {
+            csharp: { name: 'C#', paradigm: 'object-oriented'},
+            fsharp: { name: 'F#', paradigm: 'functional'},
+        };
+        console.table(languages);
+
+        //count()方法用来计数，输出它被调用了多少次
+        // function greet (user) {
+        //     console.count();
+        //     return "hi" + user;
+        // }
+        // greet('bob');
+        // //default: 1
+        // greet('alice');
+        // //default: 2
+        // greet('bob')
+        // //default: 3
+        //该方法可以接受一个字符串作为参数，作为标签，对执行次数进行分类
+        function greet (user) {
+            console.count(user);
+            return 'hi' + user;
+        }
+        greet('bob');
+        //bob: 1
+        greet('alice');
+        //alice: 1
+        greet('bob');
+        //bob: 2
+
+        //dir方法用来对一个对象进行检查(inspect),并以阅读和打印的格式显示
+        console.log({f1: 'foo',f2: 'bar'});
+        console.dir({f1: 'foo',f2: 'bar'});
+        //上面代码显示dir方法的输出结果，比log方法更易读，信息也更丰富
+        //该方法用于输出DOM对象非常有用，因为会显示DOM对象的所有属性
+        console.dir(document.body);
+
+        //assert()方法接受两个参数，第一个参数是表达式，第二个参数是字符串。只有当第一个参数为false，才会输出第二个参数，否则不会有任何结果
+        console.assert(true == false,'判断条件不成立！');
+        console.assert(document.body.childNodes.length > 500,'body子节点个数大于等于500');
+
+        console.groupCollapsed('内容是收起来的');
+        console.log(1111);
+        console.log(2222);
+        console.groupEnd();
     </script>
 </body>
 </html>
