@@ -2,9 +2,9 @@
 
 ### Elements篇
 - 示例图1：
-![示例图1：](https://github.com/liuxilei/itlr_road/blob/master/Chrome%20Developers%20Tools/img/Chrome%20Dev1.png)
+![示例图1：](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/Chrome%20Dev1.png)
 - 示例图2：
-![示例图2：](https://github.com/liuxilei/itlr_road/blob/master/Chrome%20Developers%20Tools/img/Chrome%20Dev2.png)
+![示例图2：](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/Chrome%20Dev2.png)
 
 ### console篇
 
@@ -16,7 +16,7 @@ console.warn('我生待明日.');
 console.error('万事成蹉跎.');
 ```
 console信息：
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome%20Developers%20Tools/img/console.png)
+![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/console.png)
 
 ```javascript
 console.log('%c分组信息','font-size:14px;color:blue');
@@ -28,7 +28,7 @@ console.log('不可能！');
 console.groupEnd();
 ```
 console分组:
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome%20Developers%20Tools/img/group.png)
+![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/group.png)
 
 ```javascript
 console.groupCollapsed('内容是收起来的');
@@ -36,21 +36,21 @@ console.log(1111);
 console.log(2222);
 console.groupEnd();
 ```
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome%20Developers%20Tools/img/groupCollapsed.png)
+![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/groupCollapsed.png)
 
 ```javascript
 let data = [{'品名': '豆浆', '数量': 4}, {'品名':'油条', '数量': 3}];
 console.table(data);
 ```
 console表格
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome%20Developers%20Tools/img/table.png)
+![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/table.png)
 
 ```javascript
 console.log(document.body);
 console.dir(document.body);
 ```
 console.dir
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome%20Developers%20Tools/img/dir.png)
+![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/dir.png)
 
 ```javascript
 console.time('time');
@@ -61,7 +61,7 @@ for (let i = 0;i < test.length;i++) {
 console.timeEnd('time');
 ```
 console.time()和console.timeEnd()注意括号内要相同
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome%20Developers%20Tools/img/time.png)
+![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/time.png)
 
 ```javascript
 // %s 字符串
@@ -79,7 +79,7 @@ console占位符
 ```javascript
 console.log('%cThis text is styled!','color:red;background:yellow;font-size:24px');
 ```
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome%20Developers%20Tools/img/%c.png)
+![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/%c.png)
 
 ```javascript
 //定义console.log方法
@@ -94,7 +94,7 @@ console.info('这是一个信息！');
 console.warn('这是一个警告！');
 console.error('这是一个错误!');
 ```
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome%20Developers%20Tools/img/diy.png)
+![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/diy.png)
 
 ```javascript
 //count()方法用来计数，输出它被调用了多少次
@@ -115,4 +115,4 @@ greet('bob')
 console.assert(true == false,'判断条件不成立！');
 console.assert(document.body.childNodes.length > 500,'body子节点个数大于等于500');
 ```
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome%20Developers%20Tools/img/assert.png)
+![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/assert.png)
