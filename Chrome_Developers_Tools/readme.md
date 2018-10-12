@@ -116,3 +116,22 @@ console.assert(true == false,'判断条件不成立！');
 console.assert(document.body.childNodes.length > 500,'body子节点个数大于等于500');
 ```
 ![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/assert.png)
+
+console.trace
+堆栈跟踪相关的调试可以使用console.trace。这个同样可以通过UI界面完成。当代码被打断点后，可以在Call Stack面板中查看相关堆栈信息。
+上面介绍的都是挂在window.console这个对象下面的方法，统称为Console API,接下来的这些方法确切地说应该叫命令，是Chrome内置提供，在控制台中使用的，他们统称为Command Line API 
+
+$_ 代表着最近一次命令返回的结果，并且可以作为一个变量使用在接下来的表达式中
+![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/$_.png)
+
+
+$0-$4则代表了最近5个你选择过的DOM节点
+在页面右击选择审查元素，然后在弹出来的DOM节点树上面随便点选，这些被点过的节点全被记录下来，而$0会返回最近一次点选的DOM节点，一次类推，$1返回的是上上次的DOM节点，最多保存了5个，如果不够5个，则返回undefined
+
+$ 其实是document.querySelector()的别称，返回第一个选中的DOM节点
+
+$$ 调用document.querySelectorAll()函数，返回一个数组形式的DOM节点
+
+copy 通过此命令可以将在控制台获取到的内容复制到剪切板
+
+inspect传入一个DOM节点，自动转到Elements面板中对应node的位置
