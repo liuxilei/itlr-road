@@ -1,20 +1,31 @@
-class Person {
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
+class jQuery {
+    constructor(selector) {
+        let slice = Array.prototype.slice;
+        let dom = slice.call(document.querySelectorAll(selector));
+        let len = dom ? dom.length : 0;
+        for (let i = 0; i < len; i++) {
+            this[i] = dom[i];
+        }
+        this.length = len;
+        this.selector = selector || '';
     }
-    eat() {
-        alert(`${this.name} eat something`);
+    append(node) {
+        //...
     }
-    speak() {
-        alert(`my name is ${this.name},my age is ${this.age}`)
+    addClass(name) {
+        //..
     }
+    html(data) {
+        //..
+    }
+    //此处省略n个API
 }
 
-let zhang = new Person('zhang', 20);
-zhang.eat();
-zhang.speak();
+window.$ = function (selector) {
+    //工厂模式
+    return new jQuery(selector);
+}
 
-let wang = new Person('wang', 18);
-wang.eat();
-wang.speak();
+var $p = $('p');
+console.log($p);
+console.log($p.addClass);
