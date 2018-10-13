@@ -1,31 +1,39 @@
-class jQuery {
-    constructor(selector) {
-        let slice = Array.prototype.slice;
-        let dom = slice.call(document.querySelectorAll(selector));
-        let len = dom ? dom.length : 0;
-        for (let i = 0; i < len; i++) {
-            this[i] = dom[i];
-        }
-        this.length = len;
-        this.selector = selector || '';
+class House {
+    constructor(city) {
+        this.city = city;
     }
-    append(node) {
-        //...
+    showCity() {
+        console.log(`house in ${this.city}`);
     }
-    addClass(name) {
-        //..
-    }
-    html(data) {
-        //..
-    }
-    //此处省略n个API
 }
+class People {
+    constructor(name, house) {
+        this.name = name;
+        this.house = house;
+    }
+    saySomething() {
 
-window.$ = function (selector) {
-    //工厂模式
-    return new jQuery(selector);
+    }
 }
-
-var $p = $('p');
-console.log($p);
-console.log($p.addClass);
+class A extends People {
+    constructor(name, house) {
+        super(name, house);
+    }
+    saySomething() {
+        console.log('I am A');
+    }
+}
+class B extends People {
+    constructor(name, house) {
+        super(name, house);
+    }
+    saySomething() {
+        console.log('I am B');
+    }
+}
+//测试
+let aHouse = new House('北京');
+let a = new A('aaa', aHouse);
+console.log(a); //a 有房子
+let b = new B('bbb');
+console.log(b); //b 无房子

@@ -164,3 +164,51 @@ console.log($p.addClass);
 - 对于计算机，结构化的才是最简单的
 - 编程应该 简单 & 抽象
 
+#### UML类图
+![效果](https://github.com/liuxilei/itlr_road/blob/master/Design_pattern/img/class.png)
+- 泛化：表示继承
+- 关联，表示引用
+```javascript
+class House {
+    constructor(city) {
+        this.city = city;
+    }
+    showCity() {
+        console.log(`house in ${this.city}`);
+    }
+}
+class People {
+    constructor(name, house) {
+        this.name = name;
+        this.house = house;
+    }
+    saySomething() {
+
+    }
+}
+class A extends People {
+    constructor(name, house) {
+        super(name, house);
+    }
+    saySomething() {
+        console.log('I am A');
+    }
+}
+class B extends People {
+    constructor(name, house) {
+        super(name, house);
+    }
+    saySomething() {
+        console.log('I am B');
+    }
+}
+//测试
+let aHouse = new House('北京');
+let a = new A('aaa', aHouse);
+console.log(a); //a 有房子
+let b = new B('bbb');
+console.log(b); //b 无房子
+```
+![效果](https://github.com/liuxilei/itlr_road/blob/master/Design_pattern/img/class_rela.png)
+
+
