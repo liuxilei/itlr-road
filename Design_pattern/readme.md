@@ -211,4 +211,161 @@ console.log(b); //b 无房子
 ```
 ![效果](https://github.com/liuxilei/itlr_road/blob/master/Design_pattern/img/class_rela.png)
 
+#### UNIX/LINUX设计哲学
+- 准则1：小即是美
+- 准则2：让每一个程序只做好一件事
+- 准则3：快速建立原型
+- 准则4：舍弃高效率而取可移植性
+- 准则5：采用纯文本来存储数据
+- 准则6：充分利用软件的杠杆效应(软件复用)
+- 准则7：使用shell脚本来提高杠杆效应和可移植性
+- 准则8：避免强制性的用户界面
+- 准则9：让每个程序都称为过滤器
+- 小准则：允许用户定制环境
+- 小准则：尽量使操作系统内核小而轻量化
+- 小准则：是用小写字母并尽量简短
+- 小准则：沉默是金
+- 小准则：各部分之和大于整体
+- 小准则：寻求90%的解决方案
 
+#### SOLID五大设计原则
+- S-单一职责原则
+- O-开放封闭原则
+- L-李氏置换原则
+- I-接口独立原则
+- D-依赖导致原则
+
+##### S-单一职责原则
+- 一个程序只做好一件事
+- 如果功能过于复杂就拆分开，每个部分保持独立
+
+##### O-开放封闭原则
+- 对扩展开放，对修改封闭
+- 增加需求时，扩展新代码，而非修改已有代码
+- 这是软件设计的终极目标
+
+##### L-李氏置换原则
+- 字类能覆盖父类
+- 父类能出现的地方子类就能出现
+- JS中使用较少(弱类型 & 继承使用较少)
+
+##### I-接口独立原则
+- 保持接口的单一独立，避免出现"胖接口"
+- JS中没有接口(typescript例外)，使用较少
+- 类似于单一职责原则，这里更关注接口
+
+##### D-依赖倒置原则
+- 面向接口编程，依赖于抽象而不依赖于具体(面向抽象编程，而不是面向具象编程)
+- 使用方只关注接口而不关注具体类的实现
+- JS中使用较少(没有接口 & 弱类型)
+
+```javascript
+//用Promise来说明S O
+//加载图片
+function loadImg(src) {
+    var promise = new Promise((resolve, reject) => {
+        var img = document.createElement('img');
+        img.onload = function() {
+            resolve(img);
+        }
+        img.onerror = function() {
+            reject('图片加载失败');
+        }
+        img.src = src;
+    });
+    return promise;
+}
+var src = 'https://www.imooc.com/static/img/index/logo_new.png';
+var result = loadImg(src);
+
+result.then((img) => {
+    console.log('img.width', img.width);
+    return img;
+}).then((img) => {
+    console.log('img.height',img.height);
+    return img;
+}).catch((ex) => {
+    //统一捕获异常
+    console.log(ex);
+});
+//单一职责原则:每个then中的逻辑只做好一件事
+//开放封闭原则：如果新增需求，扩展then
+//对扩展开放，对修改封闭。
+```
+
+#### 从设计到模式
+##### 创建型
+- 工厂模式(工厂方法模式，抽象工厂模式、建造者模式)
+- 单例模式
+- 原型模式
+##### 结构型
+- 适配器模式
+- 装饰者模式
+- 代理模式
+- 外观模式
+- 桥接模式
+- 组合模式
+- 享元模式
+##### 行为型
+- 策略模式
+- 模板方法模式
+- 观察者模式
+- 迭代器模式
+- 指责链模式
+- 命令模式
+- 备忘录模式
+- 状态模式
+- 访问者模式
+- 中介者模式
+- 解释器模式
+
+#### 面试题
+第一题：
+- 打车时，可以打专车或者快车。任何车都有车牌号和名称。
+- 不同车价格不同，快车每公里1元，专车每公里2元。
+- 行程开始时，显示车辆信息
+- 行程结束时，显示打车金额(假定行程就是5公里)
+- 画出UML类图
+- 用ES6语法写出该示例
+UML图：
+![效果](https://github.com/liuxilei/itlr_road/blob/master/Design_pattern/img/interview1.png)
+```javascript
+class Car {
+    constructor(cardNumber, name) {
+        this.cardNumber = cardNumber;
+        this.name = name;
+    }
+}
+class Kuaiche extends Car {
+    constructor(cardNumber, name, price) {
+        super(cardNumber, name);
+        this.price = price;
+    }
+}
+class Zhuanche extends Car {
+    constructor(cardNumber, name, price) {
+        super(cardNumber, name);
+        this.price = price;
+    }
+}
+class Trip {
+    constructor(car, far) {
+        this.car = car;
+        this.far = far;
+    }
+    start() {
+        console.log(`该车车牌号${this.car.cardNumber},车名${this.car.name}`)
+    }
+    end() {
+        console.log(`价钱${this.far * this.car.price}`)
+    }
+}
+let k = new Kuaiche('陕A1111','极速',1);
+let z = new Zhuanche('陕B2222','奢侈',2);
+let trip = new Trip(k, 5);
+let trip1 = new Trip(z, 5);
+trip.start();
+trip.end();
+trip1.start();
+trip1.end();
+```

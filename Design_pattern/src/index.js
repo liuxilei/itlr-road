@@ -1,39 +1,33 @@
-class House {
-    constructor(city) {
-        this.city = city;
-    }
-    showCity() {
-        console.log(`house in ${this.city}`);
-    }
-}
-class People {
-    constructor(name, house) {
+class Car {
+    constructor(number, name) {
+        this.number = number;
         this.name = name;
-        this.house = house;
-    }
-    saySomething() {
-
     }
 }
-class A extends People {
-    constructor(name, house) {
-        super(name, house);
-    }
-    saySomething() {
-        console.log('I am A');
+class Kuaiche extends Car {
+    constructor(number, name) {
+        super(number, name);
+        this.price = 1;
     }
 }
-class B extends People {
-    constructor(name, house) {
-        super(name, house);
-    }
-    saySomething() {
-        console.log('I am B');
+class Zhuanche extends Car {
+    constructor(number, name) {
+        super(number, name);
+        this.price = 2;
     }
 }
-//测试
-let aHouse = new House('北京');
-let a = new A('aaa', aHouse);
-console.log(a); //a 有房子
-let b = new B('bbb');
-console.log(b); //b 无房子
+class Trip {
+    constructor(car) {
+        this.car = car;
+    }
+    start() {
+        console.log(`行程开始，名称：${this.car.name},车牌号：${this.car.number}`)
+    }
+    end() {
+        console.log('行程结束，价格：' + (this.car.price * 5));
+    }
+}
+let car = new Kuaiche(100, '桑塔纳');
+let trip = new Trip(car);
+trip.start();
+trip.end();
