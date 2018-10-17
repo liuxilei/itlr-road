@@ -6,7 +6,7 @@ class Car {
 }
 //摄像头
 class Camera {
-    shot(car) {
+    shoot(car) {
         return {
             num: car.num,
             inTime: Date.now()
@@ -30,7 +30,7 @@ class Park {
     }
     in(car) {
         //通过摄像头获取信息
-        const info = this.camera.shot(car);
+        const info = this.camera.shoot(car);
         //停到某个停车位
         const i = parseInt(Math.random() * 100 % 100);
         const place = this.floors[0].places[i];
@@ -116,5 +116,3 @@ console.log(park.emptyNum());
 park.in(car3);
 console.log('第三辆车l离开');
 park.out(car3);
-
-

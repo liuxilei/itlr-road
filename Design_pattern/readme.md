@@ -331,52 +331,56 @@ UML图：
 ![效果](https://github.com/liuxilei/itlr_road/blob/master/Design_pattern/img/interview1.png)
 ```javascript
 class Car {
-    constructor(cardNumber, name) {
-        this.cardNumber = cardNumber;
+    constructor(number, name) {
+        this.number = number;
         this.name = name;
     }
 }
+// 快车
 class Kuaiche extends Car {
-    constructor(cardNumber, name, price) {
-        super(cardNumber, name);
-        this.price = price;
+    constructor(number, name) {
+        super(number, name);
+        this.price = 1;
     }
 }
+// 专车
 class Zhuanche extends Car {
-    constructor(cardNumber, name, price) {
-        super(cardNumber, name);
-        this.price = price;
+    constructor(number, name) {
+        super(number, name);
+        this.price = 2;
     }
 }
+// 行程
 class Trip {
-    constructor(car, far) {
+    constructor(car) {
         this.car = car;
-        this.far = far;
     }
     start() {
-        console.log(`该车车牌号${this.car.cardNumber},车名${this.car.name}`)
+        console.log(`行程开始，名称:${this.car.name},车牌号:${this.car.number}`);
     }
     end() {
-        console.log(`价钱${this.far * this.car.price}`)
+        console.log(`行程结束，金额:${this.car.price * 5}`)
     }
 }
-let k = new Kuaiche('陕A1111','极速',1);
-let z = new Zhuanche('陕B2222','奢侈',2);
-let trip = new Trip(k, 5);
-let trip1 = new Trip(z, 5);
+//测试
+let car1 = new Kuaiche('陕A8888','大众');
+let car2 = new Zhuanche('川B8888','奔驰');
+let trip = new Trip(car1);
+let trip1 = new Trip(car2);
 trip.start();
 trip.end();
 trip1.start();
 trip1.end();
 ```
-
+![效果](https://github.com/liuxilei/itlr_road/blob/master/Design_pattern/img/interview4.png)
 第二题：
 - 某停车场，分三层，每层100车位
 - 每个车位都能监控到车辆的驶入和离开
 - 车辆进入前，显示每层的空余车位数量
 - 车辆进入时，摄像头可识别车牌号和时间
 - 车辆出来时，出口显示器显示车牌号和停车时长
-
+UML图：
+![效果](https://github.com/liuxilei/itlr_road/blob/master/Design_pattern/img/interview2.png)
 ```javascript
 //车辆
 class Car {
@@ -497,3 +501,4 @@ park.in(car3);
 console.log('第三辆车l离开');
 park.out(car3);
 ```
+![效果](https://github.com/liuxilei/itlr_road/blob/master/Design_pattern/img/interview3.png)
