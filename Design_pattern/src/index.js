@@ -1,26 +1,20 @@
-class Product {
-    constructor(name) {
-        this.name = name;
-    }
-    init() {
-        console.log('init');
-    }
-    fn1() {
-        console.log('fn1');
-    }
-    fn2() {
-        console.log('fn2');
+class SingleObject {
+    login() {
+        console.log('login...');
     }
 }
-
-class Creator {
-    create(name) {
-        return new Product(name);
+SingleObject.getInstance = (function() {
+    let instance;
+    return function() {
+        if (!instance) {
+            instance = new SingleObject();
+        }
+        return instance;
     }
-}
-
-//测试
-let creator = new Creator();
-let p = creator.create('p1');
-p.init();
-p.fn1();
+})();
+//测试：注意这里只能使用静态函数 getInstance,不能new SingleObject()
+let obj1 = SingleObject.getInstance();
+obj1.login();
+let obj2 = SingleObject.getInstance();
+obj2.login();
+console.log(obj1 === obj2); //两者必然完全相等
