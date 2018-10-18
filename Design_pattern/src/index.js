@@ -1,20 +1,36 @@
-class SingleObject {
-    login() {
-        console.log('login...');
+class LoginForm {
+    constructor() {
+        this.state = 'hide';
+    }
+    show() {
+        if (this.state === 'show') {
+            console.log('已经显示');
+            return;
+        }
+        this.state = 'show';
+        console.log('登录框已显示');
+    }
+    hide() {
+        if (this.state === 'hide') {
+            console.log('已经隐藏');
+            return;
+        }
+        this.state = 'hide';
+        console.log('登陆框已隐藏');
     }
 }
-SingleObject.getInstance = (function() {
+LoginForm.getInstance = (function () {
     let instance;
     return function() {
         if (!instance) {
-            instance = new SingleObject();
+            instance = new LoginForm;
         }
         return instance;
     }
 })();
-//测试：注意这里只能使用静态函数 getInstance,不能new SingleObject()
-let obj1 = SingleObject.getInstance();
-obj1.login();
-let obj2 = SingleObject.getInstance();
-obj2.login();
-console.log(obj1 === obj2); //两者必然完全相等
+
+//测试
+let login1 = LoginForm.getInstance();
+login1.show();
+let login2 = LoginForm.getInstance();
+login2.hide();
