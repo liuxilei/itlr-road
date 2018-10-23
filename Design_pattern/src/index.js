@@ -1,36 +1,19 @@
-class LoginForm {
-    constructor() {
-        this.state = 'hide';
-    }
-    show() {
-        if (this.state === 'show') {
-            console.log('已经显示');
-            return;
-        }
-        this.state = 'show';
-        console.log('登录框已显示');
-    }
-    hide() {
-        if (this.state === 'hide') {
-            console.log('已经隐藏');
-            return;
-        }
-        this.state = 'hide';
-        console.log('登陆框已隐藏');
+class Adaptee {
+    specificRequest() {
+        return '德国标准的插头';
     }
 }
-LoginForm.getInstance = (function () {
-    let instance;
-    return function() {
-        if (!instance) {
-            instance = new LoginForm;
-        }
-        return instance;
+
+class Target {
+    constructor() {
+        this.adaptee = new Adaptee();
     }
-})();
+    request() {
+        let info = this.adaptee.specificRequest();
+        return `${info} -> 转换器 -> 中国标准的插头`;
+    }
+}
 
 //测试
-let login1 = LoginForm.getInstance();
-login1.show();
-let login2 = LoginForm.getInstance();
-login2.hide();
+let target = new Target();
+console.log(target.request());
