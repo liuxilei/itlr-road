@@ -1,41 +1,43 @@
-//明星
-let star = {
-    name: '张xx',
-    age: 25,
-    phone: 'star: 18380174854'
-};
-
-//经纪人
-let agent = new Proxy(star, {
-    get: function (target, key) {
-        if (key === 'phone') {
-            //返回经纪人自己的手机号
-            return 'aget: 18454511112';
-        }
-        if (key === 'price') {
-            //明星不报价，经纪人报价
-            return 12000
-        }
-        return target[key];
-    },
-    set: function (target, key, val) {
-        if (key === 'customPrice') {
-            if (val < 10000) {
-                //最低10w
-                throw new Error('价格太低');
-            } else {
-                target[key] = val;
-                return true;
-            }
-        }
+// 主题，保存状态，状态变化之后触发所有观察者对象
+class Subject {
+    constructor() {
+        this.state = 0;
+        this.observers = [];
     }
-});
+    getState() {
+        return this.state;
+    }
+    setState(state) {
+        this.state = state;
+        this.notifyAllObservers();
+    }
+    notifyAllObservers() {
+        this.observers.forEach(observer => {
+            observer.update();
+        })
+    }
+    attach(observer) {
+        this.observers.push(observer);
+    }
+}
+
+//观察者
+class Observer {
+    constructor(name, subject) {
+        this.name = name;
+        this.subject = subject;
+        this.subject.attach(this);
+    }
+    update() {
+        console.log(`${this.name} update,state: ${this.subject.getState()}`);
+    }
+}
 
 //测试
-console.log(agent.name); //张xx
-console.log(agent.age); //25
-console.log(agent.phone); //aget: 18454511112 
-console.log(agent.price); //12000
-
-agent.customPrice = 15000;
-console.log(agent.customPrice); //15000
+let s = new Subject();
+let o1 = new Observer('o1', s);
+let o2 = new Observer('o2', s);
+let o3 = new Observer('o3', s);
+s.setState(1);
+s.setState(2);
+s.setState(3);
