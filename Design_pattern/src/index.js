@@ -1,43 +1,24 @@
-// 主题，保存状态，状态变化之后触发所有观察者对象
-class Subject {
-    constructor() {
-        this.state = 0;
-        this.observers = [];
-    }
-    getState() {
-        return this.state;
-    }
-    setState(state) {
-        this.state = state;
-        this.notifyAllObservers();
-    }
-    notifyAllObservers() {
-        this.observers.forEach(observer => {
-            observer.update();
-        })
-    }
-    attach(observer) {
-        this.observers.push(observer);
+function each(data) {
+    //生成遍历器
+    let iterator = data[Symbol.iterator]();
+    //console.log(iterator.next()); //有数据时返回 {value: 1, done: false}
+    //console.log(iterator.next());
+    //console.log(iterator.next());
+    //console.log(iterator.next()); //没有数据返回 {value: undefined, done: true}
+
+    let item = { done: false };
+    while (!item.done) {
+        item = iterator.next();
+        if (!item.done) {
+            console.log(item.value);
+        }
     }
 }
+//测试代码
+let arr = [1, 2, 3];
+let m = new Map();
+m.set('a', 100);
+m.set('b', 200);
 
-//观察者
-class Observer {
-    constructor(name, subject) {
-        this.name = name;
-        this.subject = subject;
-        this.subject.attach(this);
-    }
-    update() {
-        console.log(`${this.name} update,state: ${this.subject.getState()}`);
-    }
-}
-
-//测试
-let s = new Subject();
-let o1 = new Observer('o1', s);
-let o2 = new Observer('o2', s);
-let o3 = new Observer('o3', s);
-s.setState(1);
-s.setState(2);
-s.setState(3);
+each(arr);
+each(m);
