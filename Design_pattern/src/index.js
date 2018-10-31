@@ -1,21 +1,23 @@
-class Color {
-    constructor(name) {
-        this.name = name;
+class OrdinaryUser {
+    buy() {
+        console.log('普通用户购买');
     }
 }
-class Shape {
-    constructor(name, color) {
-        this.name = name;
-        this.color = color;
-    }
-    draw() {
-        console.log(`${this.color.name} ${this.name}`);
+
+class MemberUser {
+    buy() {
+        console.log('会员用户购买');
     }
 }
-//测试代码
-let red = new Color('red');
-let yellow = new Color('yellow');
-let circle = new Shape('circle', red);
-circle.draw();
-let triange = new Shape('triange', yellow);
-triange.draw();
+
+class VipUser {
+    buy() {
+        console.log('vip用户购买');
+    }
+}
+var u1 = new OrdinaryUser();
+u1.buy();
+var u2 = new MemberUser();
+u2.buy();
+var u3 = new VipUser();
+u3.buy();
