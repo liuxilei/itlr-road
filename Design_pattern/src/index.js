@@ -1,20 +1,21 @@
-var prototype = {
-    getName: function() {
-        return this.first + ' ' + this.last;
-    },
-    say: function() {
-        console.log('hello');
+class Color {
+    constructor(name) {
+        this.name = name;
     }
-};
-//基于原型创建x
-var x = Object.create(prototype);
-x.first = 'A';
-x.last = 'B';
-console.log(x.getName());
-x.say();
-//基于原型创建y
-var y = Object.create(prototype);
-y.first = 'C';
-y.last = 'D';
-console.log(y.getName());
-y.say();
+}
+class Shape {
+    constructor(name, color) {
+        this.name = name;
+        this.color = color;
+    }
+    draw() {
+        console.log(`${this.color.name} ${this.name}`);
+    }
+}
+//测试代码
+let red = new Color('red');
+let yellow = new Color('yellow');
+let circle = new Shape('circle', red);
+circle.draw();
+let triange = new Shape('triange', yellow);
+triange.draw();
