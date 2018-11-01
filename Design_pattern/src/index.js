@@ -1,23 +1,21 @@
-class OrdinaryUser {
-    buy() {
-        console.log('普通用户购买');
+class Action {
+    constructor(name) {
+        this.name = name;
+        this.nextAction = null;
+    }
+    setNextAction(action) {
+        this.nextAction = action;
+    }
+    handle() {
+        console.log(`${this.name}审批`);
+        if (this.nextAction != null) {
+            this.nextAction.handle();
+        }
     }
 }
-
-class MemberUser {
-    buy() {
-        console.log('会员用户购买');
-    }
-}
-
-class VipUser {
-    buy() {
-        console.log('vip用户购买');
-    }
-}
-var u1 = new OrdinaryUser();
-u1.buy();
-var u2 = new MemberUser();
-u2.buy();
-var u3 = new VipUser();
-u3.buy();
+let a1 = new Action('组长');
+let a2 = new Action('经理');
+let a3 = new Action('总监');
+a1.setNextAction(a2);
+a2.setNextAction(a3);
+a1.handle();
