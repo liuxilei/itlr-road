@@ -40,7 +40,7 @@ liuxilei.eat(); //liuxilei eat something
 - private 对自己开放
 - 减少耦合,不该外露的不外露
 - 利于数据、接口的权限管理
-- ES6目前不支持,一般认为_开头的属性是private
+- ES6目前不支持,一般认为-开头的属性是private
 
 ```typescript
 class People {
@@ -156,7 +156,7 @@ var $p = $('p');
 console.log($p);
 console.log($p.addClass);
 ```
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Design_pattern/img/jquery.png)
+![效果](https://github.com/liuxilei/itlr-road/blob/master/Design-pattern/img/jquery.png)
 
 #### 为什么使用面向对象？
 - 程序执行：顺序、判断、循环 ———— 结构化
@@ -165,7 +165,7 @@ console.log($p.addClass);
 - 编程应该 简单 & 抽象
 
 #### UML类图
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Design_pattern/img/class.png)
+![效果](https://github.com/liuxilei/itlr-road/blob/master/Design-pattern/img/class.png)
 - 泛化：表示继承
 - 关联，表示引用
 ```javascript
@@ -209,7 +209,7 @@ console.log(a); //a 有房子
 let b = new B('bbb');
 console.log(b); //b 无房子
 ```
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Design_pattern/img/class_rela.png)
+![效果](https://github.com/liuxilei/itlr-road/blob/master/Design-pattern/img/class-rela.png)
 
 #### UNIX/LINUX设计哲学
 - 准则1：小即是美
@@ -275,7 +275,7 @@ function loadImg(src) {
     });
     return promise;
 }
-var src = 'https://www.imooc.com/static/img/index/logo_new.png';
+var src = 'https://www.imooc.com/static/img/index/logo-new.png';
 var result = loadImg(src);
 
 result.then((img) => {
@@ -328,7 +328,7 @@ result.then((img) => {
 - 画出UML类图
 - 用ES6语法写出该示例
 UML图：
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Design_pattern/img/interview1.png)
+![效果](https://github.com/liuxilei/itlr-road/blob/master/Design-pattern/img/interview1.png)
 ```javascript
 class Car {
     constructor(number, name) {
@@ -372,7 +372,7 @@ trip.end();
 trip1.start();
 trip1.end();
 ```
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Design_pattern/img/interview4.png)
+![效果](https://github.com/liuxilei/itlr-road/blob/master/Design-pattern/img/interview4.png)
 第二题：
 - 某停车场，分三层，每层100车位
 - 每个车位都能监控到车辆的驶入和离开
@@ -380,7 +380,7 @@ trip1.end();
 - 车辆进入时，摄像头可识别车牌号和时间
 - 车辆出来时，出口显示器显示车牌号和停车时长
 UML图：
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Design_pattern/img/interview2.png)
+![效果](https://github.com/liuxilei/itlr-road/blob/master/Design-pattern/img/interview2.png)
 ```javascript
 //车辆
 class Car {
@@ -501,4 +501,4 @@ park.in(car3);
 console.log('第三辆车l离开');
 park.out(car3);
 ```
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Design_pattern/img/interview3.png)
+![效果](https://github.com/liuxilei/itlr-road/blob/master/Design-pattern/img/interview3.png)

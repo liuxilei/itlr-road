@@ -2,9 +2,9 @@
 
 ### Elements篇
 - 示例图1：
-![示例图1：](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/Chrome%20Dev1.png)
+![示例图1：](https://github.com/liuxilei/itlr-road/blob/master/Chrome-Developers-Tools/img/Chrome%20Dev1.png)
 - 示例图2：
-![示例图2：](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/Chrome%20Dev2.png)
+![示例图2：](https://github.com/liuxilei/itlr-road/blob/master/Chrome-Developers-Tools/img/Chrome%20Dev2.png)
 
 ### console篇
 
@@ -16,7 +16,7 @@ console.warn('我生待明日.');
 console.error('万事成蹉跎.');
 ```
 console信息：
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/console.png)
+![效果](https://github.com/liuxilei/itlr-road/blob/master/Chrome-Developers-Tools/img/console.png)
 
 ```javascript
 console.log('%c分组信息','font-size:14px;color:blue');
@@ -28,7 +28,7 @@ console.log('不可能！');
 console.groupEnd();
 ```
 console分组:
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/group.png)
+![效果](https://github.com/liuxilei/itlr-road/blob/master/Chrome-Developers-Tools/img/group.png)
 
 ```javascript
 console.groupCollapsed('内容是收起来的');
@@ -36,21 +36,21 @@ console.log(1111);
 console.log(2222);
 console.groupEnd();
 ```
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/groupCollapsed.png)
+![效果](https://github.com/liuxilei/itlr-road/blob/master/Chrome-Developers-Tools/img/groupCollapsed.png)
 
 ```javascript
 let data = [{'品名': '豆浆', '数量': 4}, {'品名':'油条', '数量': 3}];
 console.table(data);
 ```
 console表格
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/table.png)
+![效果](https://github.com/liuxilei/itlr-road/blob/master/Chrome-Developers-Tools/img/table.png)
 
 ```javascript
 console.log(document.body);
 console.dir(document.body);
 ```
 console.dir
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/dir.png)
+![效果](https://github.com/liuxilei/itlr-road/blob/master/Chrome-Developers-Tools/img/dir.png)
 
 ```javascript
 console.time('time');
@@ -61,7 +61,7 @@ for (let i = 0;i < test.length;i++) {
 console.timeEnd('time');
 ```
 console.time()和console.timeEnd()注意括号内要相同
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/time.png)
+![效果](https://github.com/liuxilei/itlr-road/blob/master/Chrome-Developers-Tools/img/time.png)
 
 ```javascript
 // %s 字符串
@@ -79,7 +79,7 @@ console占位符
 ```javascript
 console.log('%cThis text is styled!','color:red;background:yellow;font-size:24px');
 ```
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/%25c.png)
+![效果](https://github.com/liuxilei/itlr-road/blob/master/Chrome-Developers-Tools/img/%25c.png)
 
 ```javascript
 //定义console.log方法
@@ -94,7 +94,7 @@ console.info('这是一个信息！');
 console.warn('这是一个警告！');
 console.error('这是一个错误!');
 ```
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/diy.png)
+![效果](https://github.com/liuxilei/itlr-road/blob/master/Chrome-Developers-Tools/img/diy.png)
 
 ```javascript
 //count()方法用来计数，输出它被调用了多少次
@@ -115,14 +115,14 @@ greet('bob')
 console.assert(true == false,'判断条件不成立！');
 console.assert(document.body.childNodes.length > 500,'body子节点个数大于等于500');
 ```
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/assert.png)
+![效果](https://github.com/liuxilei/itlr-road/blob/master/Chrome-Developers-Tools/img/assert.png)
 
 console.trace
 堆栈跟踪相关的调试可以使用console.trace。这个同样可以通过UI界面完成。当代码被打断点后，可以在Call Stack面板中查看相关堆栈信息。
 上面介绍的都是挂在window.console这个对象下面的方法，统称为Console API,接下来的这些方法确切地说应该叫命令，是Chrome内置提供，在控制台中使用的，他们统称为Command Line API 
 
-$_ 代表着最近一次命令返回的结果，并且可以作为一个变量使用在接下来的表达式中
-![效果](https://github.com/liuxilei/itlr_road/blob/master/Chrome_Developers_Tools/img/$_.png)
+$- 代表着最近一次命令返回的结果，并且可以作为一个变量使用在接下来的表达式中
+![效果](https://github.com/liuxilei/itlr-road/blob/master/Chrome-Developers-Tools/img/$-.png)
 
 
 $0-$4则代表了最近5个你选择过的DOM节点
